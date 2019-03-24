@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="registration.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Registration Form</title>
+</head>
+
+<body>
+      <div class="header">
+        <header>
+            <img src="img/logo.PNG" id="logo">
+            <div class="navbar">
+                <a href="intro.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="myFunction()">More
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="myDropdown">
+                        <a href="amenities.html">Amenities</a>
+                        <a href="registration.html">Registration</a>
+                        <a href="location.html">Location</a>
+                        <a href="guestreview.html">Guest Review</a>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+    </div>
+
+
+    <center><button class="regbtn" onclick="document.getElementById('id').style.display='block'" style="width:auto;"><img src="img/regbtn.PNG" id="btn"></button></center>
+    
+    <h1 class="policy">Terms & Policy</h1>
+    <h3 class="rule">Age Restriction</h3>
+    <p class="rule">You must be least 25 years of age to reserve a room at The Mikasa Sports Club. Please contact the Hotel for more information 1-800-298-3857 "</p>
+
+    <div id="id" class="form">
+        <span onclick="document.getElementById('id').style.display='none'" class="close" title="Close Modal">&times;
+        </span>
+
+        <form class="form-content">
+            <div class="container">
+                <h1>Room Reservation</h1>
+                <p>Please fill this form for room reservation</p>
+                <hr>
+                <b>Name</b>
+                <input type="text" placeholder="Enter your name" name="name" id="name" onblur="namevalid()" required>
+                <p id="nameinfo"></p>
+
+                <b>Address</b>
+                <input type="text" placeholder="Enter your address" name="address" id="address" onblur="addvalid()" required>
+                <p id="addinfo"></p>
+
+                <b>Phone Number</b>
+                <input type="tel" placeholder="Enter your phone number" name="phonenum" id="PhoneNum" onblur="phonevalid()" required>
+                <p id="phoneinfo"></p>
+
+                <b>Email</b>
+                <input type="email" placeholder="Enter your email address" name="email" id="Email" onblur="emailvalid()" required>
+                <p id="emailinfo"></p>
+
+                <b>Billing Address</b>
+                <input type="text" placeholder="Enter your billing address" name="billadd" id="BillAdd" onblur="billvalid()" required>
+                <p id="billinfo"></p>
+
+                <strong>Age</strong>
+                <input type="text" id="numb" placeholder="Enter your age in numeric">
+                <p id="info"></p>
+
+                <input type="checkbox" name="remember" style="margin-bottom:15px">Remember me
+
+                <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+
+                <div class="clearfix">
+                    <button type="button" onclick="document.getElementById('id').style.display='none'" class="cancelbtn">Cancel</button>
+
+                    <button onclick="myAge()" type="submit" class="signupbtn">Sign Up</button>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+    
+    <center><div class="footer">
+    <footer>
+        &copy; Mikasa Sports Club.<br> 
+        All Right Reserved
+        <br>
+       <a href="tel:0136619523">Contact Us:</a>
+        <br>
+        Email: <a href="https://mail.google.com">info@mikasasportsclub.com</a>
+    </footer>
+    </div></center>
+
+    <script>
+          /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(e) {
+            if (!e.target.matches('.dropbtn')) {
+                var myDropdown = document.getElementById("myDropdown");
+                if (myDropdown.classList.contains('show')) {
+                    myDropdown.classList.remove('show');
+                }
+            }
+        }
+        
+        
+        
+        
+        
+        // Get the form
+        var modal = document.getElementById('id');
+
+        // When the user clicks anywhere outside of the form, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        function namevalid() {
+            var text;
+            let mesej = document.getElementById("name").value;
+            if (mesej.length == 0) {
+                text = "**Please enter your name";
+            } else {
+                text = "";
+            }
+            document.getElementById("nameinfo").innerHTML = text;
+        }
+
+        function addvalid() {
+            var text;
+            let mesej = document.getElementById("address").value;
+            if (mesej.length == 0) {
+                text = "**Please enter your address";
+            } else {
+                text = "";
+            }
+            document.getElementById("addinfo").innerHTML = text;
+        }
+
+        function phonevalid() {
+            var text;
+            let mesej = document.getElementById("PhoneNum").value;
+            if (mesej.length == 0) {
+                text = "**Please enter your phone number";
+            } else {
+                text = "";
+            }
+            document.getElementById("phoneinfo").innerHTML = text;
+        }
+
+        function emailvalid() {
+            var text;
+            let mesej = document.getElementById("Email").value;
+            if (mesej.length == 0) {
+                text = "**Please enter your email";
+            } else {
+                text = "";
+            }
+            document.getElementById("emailinfo").innerHTML = text;
+        }
+
+
+        function billvalid() {
+            var text;
+            let mesej = document.getElementById("BillAdd").value;
+            if (mesej.length == 0) {
+                text = "**Please enter your billing address";
+            } else {
+                text = "";
+            }
+            document.getElementById("billinfo").innerHTML = text;
+        }
+
+
+
+        function myAge() {
+            var x, text;
+
+            // Get the value of the input field with id="numb"
+            x = document.getElementById("numb").value;
+
+            // If x is Not a Number or less than one or greater than 25
+            if (isNaN(x) || x >= 25) {
+                text = "";
+
+            } else {
+                text = "**You must be least 25 years of age to reserve a room at The Mikasa Sports Club. Please contact the Hotel for more information 1-800-298-3857 "; 
+            }if (isNaN(x) || x >= 0){
+                text="**Please enter your age";
+            }
+            document.getElementById("info").innerHTML = text;
+        }
+        
+    </script>
+</body>
+
+</html>

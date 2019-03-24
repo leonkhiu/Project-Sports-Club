@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Review</title>
+    <link rel="stylesheet" href="guestreview.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+</head>
+
+
+<body>
+      <div class="header">
+        <header>
+            <img src="img/logo.PNG" id="logo">
+            <div class="navbar">
+                <a href="intro.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="myFunction()">More
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="myDropdown">
+                        <a href="amenities.html">Amenities</a>
+                        <a href="registration.html">Registration</a>
+                        <a href="location.html">Location</a>
+                        <a href="guestreview.html">Guest Review</a>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+    </div>
+
+    <center>
+     <div class="stars" data-rating="0">
+    <p class="review">Guest Review</p>
+    <p class="review">Rate Me</p>
+   
+  <span class="star">&nbsp;</span>
+  <span class="star">&nbsp;</span>
+  <span class="star">&nbsp;</span>
+  <span class="star">&nbsp;</span>
+  <span class="star">&nbsp;</span>
+</div></center>
+  
+ <center> <div class="comment">
+      <input type="text" class="comment" placeholder="Write your comment"><button type="submit" class="submitbtn">Submit</button>
+  </div></center>
+  
+  
+  <center><div class="footer">
+    <footer>
+        &copy; Mikasa Sports Club.<br> 
+        All Right Reserved
+        <br>
+       <a href="tel:0136619523">Contact Us:</a>
+        <br>
+        Email: <a href="https://mail.google.com">info@mikasasportsclub.com</a>
+    </footer>
+    </div></center>
+    
+  <script>
+        /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(e) {
+            if (!e.target.matches('.dropbtn')) {
+                var myDropdown = document.getElementById("myDropdown");
+                if (myDropdown.classList.contains('show')) {
+                    myDropdown.classList.remove('show');
+                }
+            }
+        }
+      
+      
+    //initial setup
+document.addEventListener('DOMContentLoaded', function(){
+  addListeners();
+  setRating(); //based on value inside the div
+});
+
+function addListeners(){
+  var stars = document.querySelectorAll('.star');
+  [].forEach.call(stars, function(star, index){
+    star.addEventListener('click', (function(idx){
+      console.log('adding rating on', index);
+      document.querySelector('.stars').setAttribute('data-rating',  idx + 1);  
+      console.log('Rating is now', idx+1);
+      setRating();
+    }).bind(window,index) );
+  });
+  
+}
+
+function setRating(){
+  var stars = document.querySelectorAll('.star');
+  var rating = parseInt( document.querySelector('.stars').getAttribute('data-rating') );
+  [].forEach.call(stars, function(star, index){
+    if(rating > index){
+      star.classList.add('rated');
+      console.log('added rated on', index );
+    }else{
+      star.classList.remove('rated');
+      console.log('removed rated on', index );
+    }
+  });
+}
+    </script>
+</body>
+
+</html>

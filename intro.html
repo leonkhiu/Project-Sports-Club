@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction</title>
+    <link rel="stylesheet" href="intro.css">
+    <script src="intro.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <header>
+            <img src="img/logo.PNG" id="logo">
+            <div class="navbar">
+                <a href="intro.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="myFunction()">More
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="myDropdown">
+                        <a href="amenities.html">Amenities</a>
+                        <a href="registration.html">Registration</a>
+                        <a href="location.html">Location</a>
+                        <a href="guestreview.html">Guest Review</a>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+    </div>
+
+    <div class="content">
+        <center>
+            <div>
+                <img src="img/club.jpg" class="img">
+                <img src="img/gym.jpeg" class="img">
+                <img src="img/pool.jpg" class="img">
+            </div>
+        </center>
+        <h1 id="title">About Us</h1>
+        <p id="text">Since 1975, Mikasa Sports Club has been the choice for those who want something more than just a gym
+            membership. We’re on a mission to provide the best health club experience in the Upstate of Mukah District. A place
+            where you will rediscover your youthful spirit.
+            Our members appreciate a wide variety of equipment, exercise programs, clean locker rooms and an attentive
+            staff that respects their time and space. From team sports to group activities to individual instruction, we can
+            define a fitness program that suits anyone’s unique ability and lifestyle. We don’t just want you to join, we want to
+            be part of the reason you’re able to achieve your healthy goals week after week, year after year!</p>
+    </div>
+
+
+    <center>
+        <div class="footer">
+            <footer>
+                &copy; Mikasa Sports Club.<br>
+                All Right Reserved
+                <br>
+                <a href="tel:0136619523">Contact Us:</a>
+                <br>
+                Email: <a href="https://mail.google.com">info@mikasasportsclub.com</a>
+            </footer>
+        </div>
+    </center>
+
+    <script>
+        /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(e) {
+            if (!e.target.matches('.dropbtn')) {
+                var myDropdown = document.getElementById("myDropdown");
+                if (myDropdown.classList.contains('show')) {
+                    myDropdown.classList.remove('show');
+                }
+            }
+        }
+
+        
+
+        var slideIndex = 0;
+        `    `
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("img");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > x.length) {
+                slideIndex = 1
+            }
+            x[slideIndex - 1].style.display = "block";
+            setTimeout(carousel, 3000);
+        }
+
+    </script>
+
+
+</body>
+
+</html>

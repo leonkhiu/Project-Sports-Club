@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <link rel="stylesheet" href="location.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+   <div class="header">
+        <header>
+            <img src="img/logo.PNG" id="logo">
+            <div class="navbar">
+                <a href="intro.html">Home</a>
+                <div class="dropdown">
+                    <button class="dropbtn" onclick="myFunction()">More
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="myDropdown">
+                        <a href="amenities.html">Amenities</a>
+                        <a href="registration.html">Registration</a>
+                        <a href="location.html">Location</a>
+                        <a href="guestreview.html">Guest Review</a>
+                    </div>
+                </div>
+            </div>
+
+        </header>
+    </div>
+    
+    <p></p>
+    
+    <center>
+        <div class="mapouter" style="margin: 0 auto 0 auto; display: block;">
+            <div class="gmap_canvas"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3984.6723946777292!2d112.08552861426305!3d2.9103117553872506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31f64dabd13541c5%3A0xdda209377d3bbfa9!2sTapak+Pesta+Kaul+Mukah!5e0!3m2!1sen!2smy!4v1553008758999" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </center>
+
+<center><div class="footer">
+    <footer>
+        &copy; Mikasa Sports Club.<br> 
+        All Right Reserved
+        <br>
+       <a href="tel:0136619523">Contact Us:</a>
+        <br>
+        Email: <a href="https://mail.google.com">info@mikasasportsclub.com</a>
+    </footer>
+    </div></center>
+    
+    <script>
+      /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(e) {
+            if (!e.target.matches('.dropbtn')) {
+                var myDropdown = document.getElementById("myDropdown");
+                if (myDropdown.classList.contains('show')) {
+                    myDropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
